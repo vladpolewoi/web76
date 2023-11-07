@@ -1,0 +1,34 @@
+---
+import Folder from "@/icons/folder.astro"
+import FolderOpen from "@/icons/folder-open.astro"
+
+interface Props {
+	name?: string
+}
+
+const { name } = Astro.props
+
+const iconMap: { [key: string]: any } = {
+	folder: Folder,
+	"folder-open": FolderOpen,
+}
+
+const IconComponent = iconMap[name || ""] || Folder
+---
+
+<svg
+	class="icon"
+	clip-rule="evenodd"
+	stroke-linejoin="round"
+	stroke-miterlimit="1.414"
+	viewBox="0 0 24 24"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	{IconComponent && <IconComponent />}
+</svg>
+
+<style>
+	.icon {
+		@apply w-6 h-6;
+	}
+</style>

@@ -1,0 +1,61 @@
+---
+import Icon from "../Icon.astro"
+import type { ISidebarItem } from "@/components/sidebar/ISidebarItem"
+
+interface Props {
+	item: ISidebarItem
+}
+
+const { item } = Astro.props
+const isFolder = !!item?.routes?.length
+---
+
+<li class=`sidebarItem`>
+	<div
+		class:list={[
+			"h-2 w-2",
+			{ "border-t-2 border-r-2 border-light rotate-45": isFolder },
+		]}
+	>
+	</div>
+	<Icon name={item.icon} />
+	<span>
+		{item.label}
+		{item.fileExtension ? `.${item.fileExtension}` : ""}
+	</span>
+</li>
+{
+	isFolder && (
+		<ul class="ml-4 hidden" data-container>
+			{item.routes?.map((route) => (
+				<Astro.self item={route} />
+			))}
+		</ul>
+	)
+}
+
+<script>
+	const itemElement = document.querySelector(".sidebarItem")
+	const containerElement = document.querySelector("[data-container]")
+
+	itemElement?.addEventListener("click", () => {
+		itemElement.classList.toggle("open")
+		containerElement?.classList.toggle("open")
+	})
+</script>
+
+<style lang="scss">
+	.sidebarItem {
+		@apply w-full py-1 px-6 flex items-center gap-2 cursor-pointer hover:bg-dark-100;
+
+		&.open {
+			div:first-child {
+				@apply rotate-[135deg];
+			}
+		}
+	}
+
+	[data-container].open {
+		@apply block;
+	}
+</style>

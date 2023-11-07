@@ -1,0 +1,12 @@
+---
+import Sidebar from "@/components/sidebar/Sidebar.astro"
+import Layout from "./Layout.astro"
+
+const { title } = Astro.props
+---
+
+<Layout title={title}>
+	<div class="flex h-screen w-screen">
+		<Sidebar />
+	</div>
+</Layout>
