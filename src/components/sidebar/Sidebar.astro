@@ -1,10 +1,10 @@
 ---
-import SidebarItem from "./SidebarItem.astro"
 import { routes } from "@/components/sidebar/routes"
+import SidebarItemWithLink from "./SidebarItemWithLink.astro"
 ---
 
 <aside class="w-64 border-r border-dark-200">
 	<ul>
-		{routes.map((item) => <SidebarItem item={item} />)}
+		{routes.map((item) => <SidebarItemWithLink item={item} />)}
 	</ul>
 </aside>

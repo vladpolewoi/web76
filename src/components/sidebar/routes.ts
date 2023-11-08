@@ -4,7 +4,7 @@ export const routes: ISidebarItem[] = [
 	{
 		label: "projects",
 		path: "/projects",
-		icon: "folder",
+		icon: "folder-src",
 		routes: [
 			{
 				label: "auth",
@@ -21,6 +21,7 @@ export const routes: ISidebarItem[] = [
 	{
 		label: "blog",
 		path: "/blog",
+		icon: "folder-content",
 		routes: [],
 	},
 	{

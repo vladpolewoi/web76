@@ -1,6 +1,13 @@
 ---
 import Folder from "@/icons/folder.astro"
 import FolderOpen from "@/icons/folder-open.astro"
+import FolderSrc from "@/icons/folder-src.astro"
+import FolderSrcOpen from "@/icons/folder-src-open.astro"
+import FolderContent from "@/icons/folder-content.astro"
+import FolderContentOpen from "@/icons/folder-content-open.astro"
+import HTML from "@/icons/html.astro"
+import TSX from "@/icons/tsx.astro"
+import AstroIcon from "@/icons/astro.astro"
 
 interface Props {
 	name?: string
@@ -11,6 +18,13 @@ const { name } = Astro.props
 const iconMap: { [key: string]: any } = {
 	folder: Folder,
 	"folder-open": FolderOpen,
+	"folder-src": FolderSrc,
+	"folder-src-open": FolderSrcOpen,
+	"folder-content": FolderContent,
+	"folder-content-open": FolderContentOpen,
+	html: HTML,
+	tsx: TSX,
+	astro: AstroIcon,
 }
 
 const IconComponent = iconMap[name || ""] || Folder

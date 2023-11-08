@@ -1,0 +1,20 @@
+---
+import SidebarItem from "./SidebarItem.astro"
+import type { ISidebarItem } from "./ISidebarItem"
+interface Props {
+	item: ISidebarItem
+	level?: number
+}
+const { item } = Astro.props
+const isFolder = !!item?.routes?.length
+---
+
+{
+	isFolder ? (
+		<SidebarItem {...Astro.props} />
+	) : (
+		<a href={item?.path}>
+			<SidebarItem {...Astro.props} />
+		</a>
+	)
+}

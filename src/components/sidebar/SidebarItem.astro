@@ -1,16 +1,19 @@
 ---
 import Icon from "../Icon.astro"
 import type { ISidebarItem } from "@/components/sidebar/ISidebarItem"
+import SidebarItemWithLink from "./SidebarItemWithLink.astro"
 
 interface Props {
 	item: ISidebarItem
+	level?: number
 }
 
-const { item } = Astro.props
+const { item, level = 0 } = Astro.props
 const isFolder = !!item?.routes?.length
+const iconName = item.icon || item.fileExtension
 ---
 
-<li class=`sidebarItem`>
+<li class=`sidebarItem` style={{ paddingLeft: `${24 + level * 16}px` }}>
 	<div
 		class:list={[
 			"h-2 w-2",
@@ -18,7 +21,7 @@ const isFolder = !!item?.routes?.length
 		]}
 	>
 	</div>
-	<Icon name={item.icon} />
+	<Icon name={iconName} />
 	<span>
 		{item.label}
 		{item.fileExtension ? `.${item.fileExtension}` : ""}
@@ -26,9 +29,9 @@ const isFolder = !!item?.routes?.length
 </li>
 {
 	isFolder && (
-		<ul class="ml-4 hidden" data-container>
+		<ul class="hidden" data-container>
 			{item.routes?.map((route) => (
-				<Astro.self item={route} />
+				<SidebarItemWithLink item={route} level={level + 1} />
 			))}
 		</ul>
 	)
