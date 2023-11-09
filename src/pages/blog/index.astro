@@ -1,11 +1,26 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import Sidebar from "@/components/sidebar/Sidebar.astro"
 
 const pageTitle = "Blog"
 ---
 
 <BaseLayout title={pageTitle}>
-	<Sidebar />
-	<h1>BLOG</h1>
+	<div class="flex flex-col w-full">
+		<h1 class="text-7xl ml-6 mt-12">Blog</h1>
+		<div class="flex mt-12 ml-6">
+			<span class="text-light">Tags:</span>
+			<ul class="flex gap-4 ml-6">
+				<li>
+					<div class="bg-yellow-400 text-dark px-1">JS</div>
+				</li>
+				<li>
+					<div class="bg-green-400 text-dark px-1">VUE</div>
+				</li>
+				<li>
+					<div class="bg-blue-400 text-dark px-1">REACT</div>
+				</li>
+			</ul>
+		</div>
+		<div class="h-12 w-full bg-dark-100 my-6"></div>
+	</div>
 </BaseLayout>

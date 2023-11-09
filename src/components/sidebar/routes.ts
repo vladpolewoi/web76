@@ -26,7 +26,7 @@ export const routes: ISidebarItem[] = [
 	},
 	{
 		label: "home",
-		path: "/home",
+		path: "/",
 		fileExtension: "html",
 	},
 	{
