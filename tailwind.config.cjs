@@ -30,7 +30,10 @@ module.exports = {
 					DEFAULT: "#fabd2f", // warning
 				},
 				blue: {
-					DEFAULT: "#56b6c2", // modified
+					DEFAULT: "#56b6c2",
+				},
+				purple: {
+					DEFAULT: "#c678dd",
 				},
 			},
 		},

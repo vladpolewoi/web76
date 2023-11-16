@@ -1,0 +1,12 @@
+---
+import Icon from "astro-icon"
+
+const { icon, text, class: className } = Astro.props
+---
+
+<div
+	class:list={["text-dark px-1 flex items-center cursor-pointer", className]}
+>
+	{icon && <Icon name={icon} class="w-6 h-6" />}
+	<span class="uppercase">{text}</span>
+</div>

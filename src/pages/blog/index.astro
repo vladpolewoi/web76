@@ -2,23 +2,25 @@
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import ArticleRow from "@/components/article/ArticleRow.astro"
 import Icon from "astro-icon"
+import Badge from "@/components/Badge.astro"
+import Divider from "@/components/Divider.astro"
 
 const pageTitle = "Blog"
 
 const tags = [
 	{
 		name: "javascript",
-		color: "yellow",
+		color: "bg-yellow",
 		icon: "js",
 	},
 	{
 		name: "vue",
-		color: "green-200",
+		color: "bg-green-200",
 		icon: "vue",
 	},
 	{
 		name: "react",
-		color: "blue",
+		color: "bg-blue",
 		icon: "react-ts",
 	},
 ]
@@ -32,13 +34,8 @@ const tags = [
 			<ul class="flex gap-4 ml-6">
 				{
 					tags.map((icon) => (
-						<li class="cursor-pointer">
-							<div
-								class={`bg-${icon.color} text-dark px-1 flex items-center gap-2`}
-							>
-								<Icon name={icon.icon} class="w-6 h-6" />
-								<span class="uppercase">{icon.name}</span>
-							</div>
+						<li>
+							<Badge text={icon.name} class={icon.color} icon={icon.icon} />
 						</li>
 					))
 				}
@@ -55,10 +52,12 @@ const tags = [
 
 		<span class="text-dark-300 text-center">27 results</span>
 
-		<ul>
-			<li>
+		<ul class="mt-6">
+			<Divider />
+			<li class="p-4">
 				<ArticleRow />
 			</li>
+			<Divider />
 		</ul>
 	</div>
 </BaseLayout>
