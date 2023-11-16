@@ -10,6 +10,7 @@ export const routes: ISidebarItem[] = [
 				label: "auth",
 				path: "/projects/auth",
 				fileExtension: "tsx",
+				icon: "vscode-icons:file-type-reactts",
 			},
 			{
 				label: "blog",

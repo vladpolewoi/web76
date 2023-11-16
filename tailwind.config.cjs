@@ -26,6 +26,12 @@ module.exports = {
 				red: {
 					DEFAULT: "#fb4934", // deleted
 				},
+				yellow: {
+					DEFAULT: "#fabd2f", // warning
+				},
+				blue: {
+					DEFAULT: "#56b6c2", // modified
+				},
 			},
 		},
 	},

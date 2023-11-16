@@ -1,5 +1,5 @@
 ---
-import Icon from "../Icon.astro"
+import Icon from "astro-icon"
 import type { ISidebarItem } from "@/components/sidebar/ISidebarItem"
 import SidebarItemWithLink from "./SidebarItemWithLink.astro"
 
@@ -21,7 +21,7 @@ const iconName = item.icon || item.fileExtension
 		]}
 	>
 	</div>
-	<Icon name={iconName} />
+	<Icon name={iconName} class="h-6 w-6" />
 	<span>
 		{item.label}
 		{item.fileExtension ? `.${item.fileExtension}` : ""}
